@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "daisyui": "^2.17.0",
+    "mapbox-gl": "^2.9.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0"
