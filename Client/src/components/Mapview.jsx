@@ -4,6 +4,7 @@ import { useMap } from '../context/MapContext';
 
 const Mapview = () => {
 	// Fake API response
+	// test
 	const DB = {
 		message: 'successful',
 		res: [
