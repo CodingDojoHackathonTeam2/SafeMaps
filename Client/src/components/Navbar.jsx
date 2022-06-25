@@ -1,8 +1,9 @@
 import React from 'react';
+import logo from '../public/assets/logo.png';
 
 const Navbar = () => {
 	return (
-		<div class='navbar bg-base-100'>
+		<div class='navbar bg-blue-500 text-white'>
 			<div class='navbar-start'>
 				<div class='dropdown'>
 					<label tabindex='0' class='btn btn-ghost lg:hidden'>
@@ -23,14 +24,14 @@ const Navbar = () => {
 					</label>
 					<ul
 						tabindex='0'
-						class='menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52'
+						class='menu menu-compact dropdown-content mt-3 p-2 shadow bg-blue-500 rounded-box w-52'
 					>
 						<li>
-							<a>Item 1</a>
+							<a>Browse Locations</a>
 						</li>
 						<li tabindex='0'>
 							<a class='justify-between'>
-								Parent
+								Register
 								<svg
 									class='fill-current'
 									xmlns='http://www.w3.org/2000/svg'
@@ -43,28 +44,31 @@ const Navbar = () => {
 							</a>
 							<ul class='p-2'>
 								<li>
-									<a>Submenu 1</a>
+									<a>For refugees</a>
 								</li>
 								<li>
-									<a>Submenu 2</a>
+									<a>For donors / volunteers</a>
 								</li>
 							</ul>
 						</li>
 						<li>
-							<a>Item 3</a>
+							<a>Why help?</a>
 						</li>
 					</ul>
 				</div>
-				<a class='btn btn-ghost normal-case text-xl'>daisyUI</a>
+				<a class='btn btn-ghost normal-case text-xl'>
+					<img src={logo} className='w-8 h-8' alt='' />
+					safeMaps
+				</a>
 			</div>
 			<div class='navbar-center hidden lg:flex'>
 				<ul class='menu menu-horizontal p-0'>
 					<li>
-						<a>Item 1</a>
+						<a>Browse Locations</a>
 					</li>
 					<li tabindex='0'>
 						<a>
-							Parent
+							Sign In
 							<svg
 								class='fill-current'
 								xmlns='http://www.w3.org/2000/svg'
@@ -77,20 +81,22 @@ const Navbar = () => {
 						</a>
 						<ul class='p-2'>
 							<li>
-								<a>Submenu 1</a>
+								<a>Sign in as refugee</a>
 							</li>
 							<li>
-								<a>Submenu 2</a>
+								<a>Sign in as donor</a>
 							</li>
 						</ul>
 					</li>
 					<li>
-						<a>Item 3</a>
+						<a>Why help?</a>
 					</li>
 				</ul>
 			</div>
 			<div class='navbar-end'>
-				<a class='btn'>Get started</a>
+				<a class='btn btn-accent bg-yellow-300 hover:bg-yellow-500 text-black font-bold'>
+					Become a donor
+				</a>
 			</div>
 		</div>
 	);
