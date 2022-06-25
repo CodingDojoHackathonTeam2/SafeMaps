@@ -9,5 +9,6 @@ router.register(r'/api/v1/profiles', views.ProfileViewSet)
 
 urlpatterns = [
     url('^$', views.test),
+    path('jhomarTest', views.test2),
     path('api/v1/profiles', views.ProfileViewSet.as_view({'get': 'list'}))
 ]
