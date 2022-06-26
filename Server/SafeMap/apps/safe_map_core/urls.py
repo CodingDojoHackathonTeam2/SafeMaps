@@ -13,4 +13,6 @@ urlpatterns = [
     path('api/v1/profiles', views.ProfileViewSet.as_view({'get': 'list'})),
     path('session/check', views.check_login),
     path('api/users/login', views.login_view),
+    path('api/users/register', views.register),
+    path('api/users/logout', views.logout_user),
 ]

@@ -5,8 +5,18 @@ from .serializers import *
 from rest_framework.generics import ListAPIView,CreateAPIView
 from rest_framework import viewsets
 from rest_framework import permissions
+from django.contrib.auth.models import User
+import json
 
 from django.http import JsonResponse
+
+#convert request body to JSON
+def get_json(request):
+    try:
+        request_body = json.loads(request.body)
+        return request_body
+    except:
+        return {}
 
 # Create your views here.
 def test(request):
@@ -38,15 +48,50 @@ def check_login(request):
         )
 
 def login_view(request):
-    username = request.POST.get("username")
-    password = request.POST.get("password")
-    print(username, password)
-    print(request)
+
+    username = get_json(request).get("username")
+    password = get_json(request).get("password")
     user = authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user)
-        print("logged in?")
         return JsonResponse({"signed_in": True})
     else:
-        print("or not?")
         return JsonResponse({"signed_in": False}, status=401)
+
+def register(request):
+    form = get_json(request)
+
+    try:
+        # Todo add password validation
+        user = User.objects.create(
+            username=form.get("username"),
+            password=form.get("password"),
+            email=form.get("email"),
+            first_name=form.get("first_name"),
+            last_name=form.get("last_name")
+        )
+        login(request, user)
+        return JsonResponse(
+            {
+                "signed_in": True,
+                "create": True
+            }
+        )
+    except Exception as e:
+        return JsonResponse(
+            {
+                "signed_in": False,
+                "create": False,
+                "error": e
+            }
+        )
+
+def logout_user(request):
+    logout(request)
+    return JsonResponse(
+        {
+            "signed_out": True
+        }
+    )
+
+
