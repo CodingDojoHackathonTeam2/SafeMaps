@@ -1,26 +1,22 @@
 # SafeMaps
 Hackathon Challenge to Build an App to help Ukrainian Refugees find aid
+<h2>Front end to Back End request/response diagram:</h2>
 
+![image](https://user-images.githubusercontent.com/75331586/175826089-a347086b-1bef-4e9f-af63-ddb56b860e91.png)
 
 BACK-END:
 Installation
 
 1) Create directory above repository
-C:.
-└───Hackathon (new directory)
-    └───SafeMaps (repository)
-        ├───Client
-        └───Server
+
+![image](https://user-images.githubusercontent.com/75331586/175826024-b2789bd3-e51a-4362-8b67-56a3e88d7980.png)
+
 
 2) In direcory above repository create virtual environment
 > python3 -m venv envSafe
+
 Your directory tree should look like this:
-C:.
-└───Hackathon
-    ├───envSafe (new directory with virtual environment OUTSIDE of repo)
-    └───SafeMaps
-        ├───Client
-        └───Server
+![image](https://user-images.githubusercontent.com/75331586/175825979-ce3f90c1-c547-4d7c-bb2d-a9bfd2acb01e.png)
 
 3) Activate virtual environment 
 > envSafe/Scripts/activate
