@@ -19,10 +19,15 @@ Your directory tree should look like this:
 ![image](https://user-images.githubusercontent.com/75331586/175825979-ce3f90c1-c547-4d7c-bb2d-a9bfd2acb01e.png)
 
 3) Activate virtual environment 
+(Windows)
 > envSafe/Scripts/activate
+
 May have to use `call`
 > call envSafe/Scripts/activate
-4) pip install Django==3.0.0 djangorestframework
+
+(Mac/Linux)
+> source envSafe/bin/activate
+4) pip install Django==3.0.0 djangorestframework djangorestframework-simplejwt
 
 <h3>Run server</h3>
 
