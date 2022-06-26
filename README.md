@@ -4,8 +4,8 @@ Hackathon Challenge to Build an App to help Ukrainian Refugees find aid
 
 ![image](https://user-images.githubusercontent.com/75331586/175826089-a347086b-1bef-4e9f-af63-ddb56b860e91.png)
 
-BACK-END:
-Installation
+<h2>BACK-END:</h2>
+<h3>Installation</h3>
 
 1) Create directory above repository
 
@@ -24,7 +24,7 @@ May have to use `call`
 > call envSafe/Scripts/activate
 4) pip install Django==3.0.0 djangorestframework
 
-Run server
+<h3>Run server</h3>
 
 1) Run django server
 > python path/to/manage.py runserver
@@ -35,7 +35,7 @@ Admin
 2) Follow prompts
 3) Test login at http://127.0.0.1:8000/admin/
 
-Endpoints
+<h3>Endpoints</h3>
 
 <h3>Get all profiles</h3>
 <table>
