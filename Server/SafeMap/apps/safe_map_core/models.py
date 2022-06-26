@@ -3,6 +3,10 @@ from django.contrib.auth.models import User
 from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
 
+#todo refactor user object
+#todo relatinship fields
+#todo figure method
+
 # Create your models here.
 # Change Users to -> User
 class Users(models.Model):
@@ -35,10 +39,18 @@ class Announcements(models.Model):
     lodging_time=models.IntegerField(validators=[MinValueValidator(0)])
     # Identificar la autenticidad del usuario
     identity=models.BooleanField(default=False)
+    child_friendly = models.BooleanField(default=False)
+    pet_friendly = models.BooleanField(default=False)
+    #todo languages one to many
     # ==================================
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
+    #todo coordinates for map box
 
     def __str__(self):
         return f'[MODELS] Announcement | name: {self.name}'
+
+class Languages(models.Model):
+    pass
+    #todo add field
 
