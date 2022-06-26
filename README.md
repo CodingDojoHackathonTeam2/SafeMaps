@@ -10,7 +10,7 @@ Installation
 > python3 -m venv envSafe
 3) Activate virtual environment 
 > envSafe/Scripts/activate
-4) pip install Django==3.0.0
+4) pip install Django==3.0.0 djangorestframework
 
 Run server
 
