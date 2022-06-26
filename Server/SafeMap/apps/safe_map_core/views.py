@@ -12,6 +12,9 @@ from django.http import JsonResponse
 def test(request):
     return HttpResponse("How are you?")
 
+def test2(request):
+    return render(request,'index.html')
+
 class ProfileViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.

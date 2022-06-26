@@ -9,8 +9,8 @@ from rest_framework import routers
 
 urlpatterns = [
     url('^$', views.test),
+    path('jhomarTest', views.test2),
     path('api/v1/profiles', views.ProfileViewSet.as_view({'get': 'list'})),
     path('session/check', views.check_login),
-    path('api/users/login', views.login_view)
-
+    path('api/users/login', views.login_view),
 ]
