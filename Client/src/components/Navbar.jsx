@@ -1,9 +1,12 @@
 import React from 'react';
 import logo from '../public/assets/logo.png';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+	let navigate = useNavigate();
+
 	return (
-		<div class='navbar bg-blue-500 text-white'>
+		<div class='navbar bg-blue-500 text-white sticky top-0 z-50'>
 			<div class='navbar-start'>
 				<div class='dropdown'>
 					<label tabindex='0' class='btn btn-ghost lg:hidden'>
@@ -27,29 +30,10 @@ const Navbar = () => {
 						class='menu menu-compact dropdown-content mt-3 p-2 shadow bg-blue-500 rounded-box w-52'
 					>
 						<li>
-							<a>Browse Locations</a>
+							<a onClick={() => navigate('/map')}>Browse Locations</a>
 						</li>
-						<li tabindex='0'>
-							<a class='justify-between'>
-								Register
-								<svg
-									class='fill-current'
-									xmlns='http://www.w3.org/2000/svg'
-									width='24'
-									height='24'
-									viewBox='0 0 24 24'
-								>
-									<path d='M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z' />
-								</svg>
-							</a>
-							<ul class='p-2'>
-								<li>
-									<a>For refugees</a>
-								</li>
-								<li>
-									<a>For donors / volunteers</a>
-								</li>
-							</ul>
+						<li>
+							<a onClick={() => navigate('/login')}>Sign In</a>
 						</li>
 						<li>
 							<a>Why help?</a>
@@ -64,29 +48,10 @@ const Navbar = () => {
 			<div class='navbar-center hidden lg:flex'>
 				<ul class='menu menu-horizontal p-0'>
 					<li>
-						<a>Browse Locations</a>
+						<a onClick={() => navigate('/map')}>Browse Locations</a>
 					</li>
-					<li tabindex='0'>
-						<a>
-							Sign In
-							<svg
-								class='fill-current'
-								xmlns='http://www.w3.org/2000/svg'
-								width='20'
-								height='20'
-								viewBox='0 0 24 24'
-							>
-								<path d='M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z' />
-							</svg>
-						</a>
-						<ul class='p-2'>
-							<li>
-								<a>Sign in as refugee</a>
-							</li>
-							<li>
-								<a>Sign in as donor</a>
-							</li>
-						</ul>
+					<li>
+						<a onClick={() => navigate('/login')}>Sign In</a>
 					</li>
 					<li>
 						<a>Why help?</a>
@@ -94,7 +59,7 @@ const Navbar = () => {
 				</ul>
 			</div>
 			<div class='navbar-end'>
-				<a class='btn btn-accent bg-yellow-300 hover:bg-yellow-500 text-black font-bold'>
+				<a class='btn btn-accent bg-yellow-300 hover:bg-yellow-500 text-black font-bold '>
 					Become a donor
 				</a>
 			</div>

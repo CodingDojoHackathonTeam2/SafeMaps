@@ -4,7 +4,6 @@ import Navbar from '../components/Navbar';
 const MapSearch = () => {
 	return (
 		<>
-			<Navbar />
 			<Mapview />
 		</>
 	);
