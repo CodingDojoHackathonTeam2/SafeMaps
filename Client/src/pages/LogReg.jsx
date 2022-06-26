@@ -3,6 +3,7 @@ import * as Tabs from '@radix-ui/react-tabs';
 import { useState } from 'react';
 import axios from 'axios';
 
+
 const LogReg = () => {
 
     const [email, setEmail] = useState("");
@@ -44,6 +45,7 @@ const LogReg = () => {
 
     const login = (event) =>{
         event.preventDefault();
+
         // Need to send get request to get CSRF token
         // And then add to header with the key `X-CSRFToken`
         axios
@@ -85,6 +87,7 @@ const LogReg = () => {
                         <input type="password" name="password" onChange={(e) => setPassword(e.target.value)} />
                         <button type="submit">Sign In</button>
                     </form>
+// Merge conflict resolved by S. Yee and R. Caceres
 
                 </Tabs.Content>
 
