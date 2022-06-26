@@ -1,31 +1,44 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    full_name = models.CharField(max_length=50)
-    phone_mobile = models.CharField(max_length=20, blank=True, null=True)
-    phone_secondary = models.CharField(max_length=20, blank=True, null=True)
-    address_street1 = models.CharField(max_length=250, blank=True, null=True)
-    address_street2 = models.CharField(max_length=250, blank=True, null=True)
-    address_street3 = models.CharField(max_length=250, blank=True, null=True)
-    address_city = models.CharField(max_length=250, blank=True, null=True)
-    address_postal = models.CharField(max_length=20, blank=True, null=True)
-    address_state = models.CharField(max_length=50, blank=True, null=True)
-    address_country = models.CharField(max_length=50, blank=True, null=True)
-    stripe_lookup = models.CharField(max_length=50, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    def in_group(self, group_name):
-        if group_name in self.user.groups.all():
-            return True
-        else:
-            return False
+# Change Users to -> User
+class Users(models.Model):
+    firstname=models.CharField(max_length=255)
+    lastname=models.CharField(max_length=255)
+    email=models.EmailField(max_length=255)
+    password= models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add = True)
+    updated_at = models.DateTimeField(auto_now = True)
 
     def __str__(self):
-        return self.full_name
+        return f"[MODELS] User | name: {self.firstname}, email: {self.email}"
 
+
+class Profile(models.Model):
+    user=models.OneToOneField(Users, on_delete=models.CASCADE, related_name='profile',primary_key=True)
+
+    def __str__(self):
+        return f'[MODELS] Profile | name: {self.user.nombre} '
+
+# RELATIONS
+# many to many
+# many to one
+
+class Announcements(models.Model):
+    name=models.CharField(max_length=255)
+    country=models.CharField(max_length=255)
+    city=models.CharField(max_length=255)
+    people_capacity=models.IntegerField(validators=[MinValueValidator(0)])
+    lodging_time=models.IntegerField(validators=[MinValueValidator(0)])
+    # Identificar la autenticidad del usuario
+    identity=models.BooleanField(default=False)
+    # ==================================
+    created_at = models.DateTimeField(auto_now_add = True)
+    updated_at = models.DateTimeField(auto_now = True)
+
+    def __str__(self):
+        return f'[MODELS] Announcement | name: {self.name}'
 
