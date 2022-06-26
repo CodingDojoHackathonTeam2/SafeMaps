@@ -15,6 +15,8 @@ Hackathon Challenge to Build an App to help Ukrainian Refugees find aid
 2) In direcory above repository create virtual environment
 > python3 -m venv envSafe
 
+! If `python3` doesn't work, may have to use `python`
+
 Your directory tree should look like this:
 ![image](https://user-images.githubusercontent.com/75331586/175825979-ce3f90c1-c547-4d7c-bb2d-a9bfd2acb01e.png)
 
@@ -31,8 +33,12 @@ May have to use `call`
 
 <h3>Run server</h3>
 
-1) Run django server
-> python path/to/manage.py runserver
+1) Make Migrations and Migrate
+> python3 path/to/manage.py makemigrations
+> python3 path/to/manage.py migrate
+
+2) Run django server
+> python3 path/to/manage.py runserver
 
 Admin
 1) Create superuser
