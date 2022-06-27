@@ -20,4 +20,3 @@ urlpatterns = [
     path('api/session/', views.SessionView.as_view(), name='api-session'),
     path('api/whoami/', views.WhoAmIView.as_view(), name='api-whoami'),
 ]
-
