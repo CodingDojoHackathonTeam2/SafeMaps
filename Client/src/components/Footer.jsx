@@ -1,5 +1,5 @@
 import React from 'react'
-import safe from '../assets/icons/safehometranparente.png'
+import safe from '../assets/icons/logo_ishelter_1.png'
 
 const Footer = () => {
 
@@ -10,7 +10,7 @@ const Footer = () => {
       <div className='inline-block mx-auto'>
         <img src={safe} className='h-20 flex justify-center' alt='logo'></img>
               <p className='text-center text-xl text-white'>
-              SafeMaps
+              <span className="text-blue-500"><span className="text-yellow-400">i</span>Shelter</span>
               </p>
       </div>
 

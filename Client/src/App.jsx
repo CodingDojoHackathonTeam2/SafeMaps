@@ -15,9 +15,10 @@ function App() {
 		<>
 			<Navbar />
 			<Routes>
-        <Route path='/' element={<Landing />} />
+        		<Route path='/' element={<Landing />} />
 				<Route path='/login' element={<LogReg />} />
 				<Route path='/map' element={<MapSearch />} />
+				
 			</Routes>
       <Footer/>
 		</>

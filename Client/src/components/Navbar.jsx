@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../public/assets/logo.png';
+import Logo from '../assets/icons/logo_ishelter_1.png'
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
@@ -36,13 +36,13 @@ const Navbar = () => {
 							<a onClick={() => navigate('/login')}>Sign In</a>
 						</li>
 						<li>
-							<a>Why help?</a>
+							<a href='#why' className='scroll-smooth'>Why help?</a>
 						</li>
 					</ul>
 				</div>
-				<a className='btn btn-ghost normal-case text-xl' onClick={() => navigate('/')}>
-					<img src={logo} className='w-8 h-8' alt='' />
-					safeMaps
+				<a onClick={() => navigate('/')} className='btn btn-ghost normal-case text-xl' >
+					<img src={Logo}  className='h-8 w-8 text-white' alt='logo'/>
+					<span className='text-yellow-500'>i</span>Shelter
 				</a>
 			</div>
 			<div class='navbar-center hidden lg:flex'>
@@ -54,13 +54,13 @@ const Navbar = () => {
 						<a onClick={() => navigate('/login')}>Sign In</a>
 					</li>
 					<li>
-						<a>Why help?</a>
+						<a href='#why' className='scroll-smooth'>Why help?</a>
 					</li>
 				</ul>
 			</div>
 			<div class='navbar-end'>
-				<a class='btn btn-accent bg-yellow-300 hover:bg-yellow-500 text-black font-bold '>
-					Become a donor
+				<a onClick={() => navigate('/login')} class='btn btn-accent bg-yellow-300 hover:bg-yellow-500 text-black font-bold '>
+					Sing in
 				</a>
 			</div>
 		</div>
