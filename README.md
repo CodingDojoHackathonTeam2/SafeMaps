@@ -50,7 +50,7 @@ Admin
 
 <h3>Endpoints</h3>
 
-<h3>Get all profiles</h3>
+<h3>Get CSRF Token</h3>
 <table>
     <thead>
         <tr>
@@ -59,7 +59,7 @@ Admin
     </thead>
     <tbody>
         <tr>
-            <td>GET</td><td>api/v1/profiles</td>
+            <td>GET</td><td>api/csrf/</td>
         </tr>
     </tbody>
 <table>
@@ -92,3 +92,17 @@ Admin
     </tbody>
 <table>
 Requires CSRF Token
+
+<h3>Get all profiles</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Method</th><th>URI</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>GET</td><td>api/v1/profiles</td>
+        </tr>
+    </tbody>
+<table>

@@ -2,10 +2,13 @@ from django.shortcuts import render, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from .models import *
 from .serializers import *
-from rest_framework.generics import ListAPIView,CreateAPIView
 from rest_framework import viewsets
 from rest_framework import permissions
+from django.middleware.csrf import get_token
 from django.contrib.auth.models import User
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.views import APIView
 import json
 
 from django.http import JsonResponse
@@ -19,6 +22,10 @@ def get_json(request):
         return {}
 
 # Create your views here.
+def get_csrf(request):
+    response = JsonResponse({'detail': 'CSRF cookie set'})
+    response['X-CSRFToken'] = get_token(request)
+    return response
 def test(request):
     return HttpResponse("How are you?")
 
@@ -100,5 +107,22 @@ def logout_user(request):
             "signed_out": True
         }
     )
+
+class SessionView(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    @staticmethod
+    def get(request, format=None):
+        return JsonResponse({'isAuthenticated': True})
+
+
+class WhoAmIView(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    @staticmethod
+    def get(request, format=None):
+        return JsonResponse({'username': request.user.username})
 
 
