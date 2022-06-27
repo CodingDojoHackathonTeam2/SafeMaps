@@ -36,11 +36,11 @@ const Navbar = () => {
 							<a onClick={() => navigate('/login')}>Sign In</a>
 						</li>
 						<li>
-							<a>Why help?</a>
+							<a onClick={() => navigate('/About')}>Why help?</a>
 						</li>
 					</ul>
 				</div>
-				<a class='btn btn-ghost normal-case text-xl'>
+				<a onClick={() => navigate('/')} class='btn btn-ghost normal-case text-xl' >
 					<img src={logo} className='w-8 h-8' alt='' />
 					safeMaps
 				</a>
@@ -54,7 +54,7 @@ const Navbar = () => {
 						<a onClick={() => navigate('/login')}>Sign In</a>
 					</li>
 					<li>
-						<a>Why help?</a>
+						<a onClick={() => navigate('/about')}>Why help?</a>
 					</li>
 				</ul>
 			</div>

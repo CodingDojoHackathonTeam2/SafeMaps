@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "axios": "^0.27.2",
     "daisyui": "^2.17.0",
     "mapbox-gl": "^2.9.1",

@@ -18,7 +18,7 @@ const Landing = () => {
     
     <div className=' mx-auto  h-screen bg-yellow-300' >
       <div className='container mx-auto flex justify-center pt-52'>
-        <p className='text-center text-6xl font-semibold '>
+        <p className='text-center text-6xl font-semibold ' >
                             Safe <span className='text-center text-4xl text-blue-900 font-black'>HOMES</span>❤
                             <br></br>
                             for those ukranian people
@@ -30,7 +30,7 @@ const Landing = () => {
           <br></br>
       </div>
 
-      <div className='mt-10 flex h-10 justify-center content-around gap-20'>
+      <div className='mt-10 flex h-10 justify-center content-around gap-20' >
 
           <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold text-md py-2 px-4 rounded-full">
           host refugees
@@ -42,12 +42,15 @@ const Landing = () => {
       </div>
     </div>
 
-   <div className='container mx-auto pt-24 pb-24  '>
+
+<div  data-aos='fade-up'className='container mx-auto pt-24 pb-24  '>
       <h1 className='text-center text-6xl pb-6'>
                   your help is very important
       </h1>
 
-    <p className='text-center mx-auto text-xl'>
+  
+
+    <p className='text-center mx-auto text-xl' >
       <span className='text-blue-500'>
         SafeMaps
       </span>
@@ -66,15 +69,15 @@ const Landing = () => {
    </div>
 
 
-    <section className='mx-auto h-96 flex justify-center content-evenly '>
-      <div className="flex gap-24">
-        <div className="flex-initial w-64 ">
-          <p className='text-center text-4xl pt-32'>
+    <section  className='mx-auto h-96 flex justify-center content-evenly '>
+      <div  className="flex gap-24">
+        <div  className="flex-initial w-64 ">
+          <p data-aos="zoom-in-left" data-aos-duration="1000"className='text-center text-4xl pt-32'>
             texto bonito para presentar safemap/safeHome
           </p>
         </div>
 
-        <div className="flex-initial w-64 gap-y-24">
+        <div data-aos="zoom-in-left"  className="flex-initial w-64 gap-y-24">
           <Geo />
         </div>
       </div>
@@ -83,16 +86,16 @@ const Landing = () => {
     
     <section className='mx-auto h-96 flex justify-center content-evenly pt-20  '>
       <div className="flex gap-24 ">
-        <div className="flex-initial w-64  ">
+        <div data-aos="fade-right" className="flex-initial w-64  ">
           <Faq/>
         </div>
 
-        <div className="flex-initial w-64 h-64 gap-y-24 ">
-          <h1 className='text-left text-4xl'>
+        <div  className="flex-initial w-64 h-64 gap-y-24 ">
+          <h1 data-aos="fade-right" data-aos-duration="1000" className='text-left text-4xl'>
             Ofrece un alojamiento gratuito
           </h1>
           <br></br>
-          <h2 className='text-left text-2xl'>
+          <h2  data-aos="fade-right" data-aos-duration="1500"  className='text-left text-2xl'>
           ¿Qué debo saber?
           </h2>
         </div>
@@ -148,7 +151,7 @@ const Landing = () => {
         </div>
       </div>
     </section>
-    
+
     <div>
       <p className='text-center'>Quieres realizar una Donacion?</p>
     </div>
