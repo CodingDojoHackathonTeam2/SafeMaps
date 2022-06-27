@@ -29,8 +29,14 @@ May have to use `call`
 
 (Mac/Linux)
 > source envSafe/bin/activate
-5) pip install django-cors-headers
-4) pip install Django==3.0.0 djangorestframework djangorestframework-simplejwt
+5) Install CORS Headers library
+>pip install django-cors-headers
+
+6) installing django-cors-headers will install Django Version 4.0.0, but we're using 3.0.0. So you may have to uninstall Django
+>pip uninstall Django
+
+4) install the rest of the packages
+>pip install Django==3.0.0 djangorestframework djangorestframework-simplejwt requests
 
 <h3>Run server</h3>
 
