@@ -36,6 +36,7 @@ const Navbar = () => {
 							<a onClick={() => navigate('/login')}>Sign In</a>
 						</li>
 						<li>
+
 							<a href='#why' className='scroll-smooth'>Why help?</a>
 						</li>
 					</ul>
@@ -43,6 +44,7 @@ const Navbar = () => {
 				<a onClick={() => navigate('/')} className='btn btn-ghost normal-case text-xl' >
 					<img src={Logo}  className='h-8 w-8 text-white' alt='logo'/>
 					<span className='text-yellow-500'>i</span>Shelter
+
 				</a>
 			</div>
 			<div class='navbar-center hidden lg:flex'>
@@ -54,7 +56,9 @@ const Navbar = () => {
 						<a onClick={() => navigate('/login')}>Sign In</a>
 					</li>
 					<li>
+
 						<a href='#why' className='scroll-smooth'>Why help?</a>
+
 					</li>
 				</ul>
 			</div>
