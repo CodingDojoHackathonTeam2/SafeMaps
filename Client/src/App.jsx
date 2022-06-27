@@ -1,11 +1,12 @@
 import mapboxgl from 'mapbox-gl';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Router } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import Landing from './pages/Landing';
 import Footer from './components/Footer'
 import LogReg from './pages/LogReg';
 import MapSearch from './pages/MapSearch';
+import About from './pages/About';
 
 function App() {
 	const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
@@ -15,10 +16,12 @@ function App() {
 		<>
 			<Navbar />
 			<Routes>
+
         		<Route path='/' element={<Landing />} />
 				<Route path='/login' element={<LogReg />} />
 				<Route path='/map' element={<MapSearch />} />
 				
+
 			</Routes>
       <Footer/>
 		</>

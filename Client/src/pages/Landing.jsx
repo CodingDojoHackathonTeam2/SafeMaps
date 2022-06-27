@@ -55,7 +55,7 @@ const Landing = () => {
         </h1>
 
         <p className="text-center mx-auto text-xl">
-          <span className="text-blue-500"><span className="text-yellow-400">i</span>Shelter </span>
+          <span className="text-blue-500"><span className="text-yellow-400"></span>Shelter </span>
           will fund temporary housing for up to 100,000 people fleeing
           <span> Ukraine ❤</span>, regardless of their nationality, racial or
           ethnic origin, or how they identify themselves.
