@@ -93,11 +93,11 @@ def register(request):
             )
         print(form)
         user = User.objects.create(
-            username=form.get("username"),
+            username=form.get("email"),
             password=form.get("password"),
             email=form.get("email"),
-            first_name=form.get("first_name"),
-            last_name=form.get("last_name")
+            first_name=form.get("firstname"),
+            last_name=form.get("lastname")
         )
         login(request, user)
         return JsonResponse(
