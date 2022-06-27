@@ -5,7 +5,7 @@ const Donations = () => {
   return (
     <>
     <div></div>
-        <div className="flex mx-auto">
+        <div className="flex flex-col mx-auto ">
             <div className="flex-1 col-span-1 w-64">
                 <div className='flex justify-center'>
                     <p className='text-left text-5xl'>Haz un donativo</p>
@@ -44,8 +44,8 @@ const Donations = () => {
                 </div>
                 
             </div>
-            <div className="flex-1 w-32 ">
-                <Donation/>
+            <div className="flex-1 w-32">
+                
             </div>
         </div>
     </>

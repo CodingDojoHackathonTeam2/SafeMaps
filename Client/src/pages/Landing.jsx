@@ -8,6 +8,8 @@ import Bed from '../components/icons/Bed'
 import Contact from '../components/icons/Contact'
 import People from '../components/icons/People'
 import Donations from '../components/Donations'
+import Footer from '../components/Footer'
+import Donation from '../components/icons/Donation'
 
 const Landing = () => {
 
@@ -97,7 +99,7 @@ const Landing = () => {
       </div>
     </section>
 
-    <section className='mx-auto flex justify-center pt-20 border-t-4'>
+    <section className='mx-auto flex justify-center pt-20 border-b-4'>
       <div className="inline-flex gap-x-10 ">
         <div className="flex-1">
                   <div class="max-w-sm rounded overflow-hidden shadow-lg">
@@ -146,18 +148,68 @@ const Landing = () => {
         </div>
       </div>
     </section>
-
-    <div className='pt-40'>
-      <Donations/>
+    
+    <div>
+      <p className='text-center'>Quieres realizar una Donacion?</p>
     </div>
+
+      <div className='flex justify-center pt-10'>
+        <Donation height={300}/>
+      </div>
+    <section className='mx-auto flex justify-center pt-20 border-b-4'>
+      
+      <div className="inline-flex gap-x-10 ">
+        <div className="flex-1">
+                  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+            <div class="px-6 py-4">
+              <Bed/>
+              <div class="font-bold text-xl mb-2 inline-flex gap-2"> <Check height={24} /> Room and Services </div>
+              
+              <p class="text-gray-700 text-base">
+                Asegúrate de que tus huéspedes cuenten con una cama cómoda y servicios básicos durante la estancia,
+              que puede durar desde unos días hasta varias semanas. Más información sobre cómo hospedar a personas refugiadas
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="flex-1">
+          <div className="flex-1">
+                    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+              <div class="px-6 py-4 ">
+                <Contact/>
+                <p class="font-bold text-xl mb-2 inline-flex gap-2">
+                  <Check height={24}/>
+                  how do you contact
+                </p>
+                
+                  <p class="text-gray-700 text-base">
+                  SafeMap colabora con organizaciones sin ánimo de lucro que comprueban
+                  si los huéspedes refugiados cumplen los requisitos del programa y les ofrecen
+                  ayuda antes, durante y después de la estancia.
+                  </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="flex-1">
+        <div className="flex-1">
+                  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+            <div class="px-6 py-4">
+              <People/>
+              <div class="font-bold text-xl mb-2 inline-flex gap-2"> <Check height={24}/>Guest Arrival</div>
+                <p class="text-gray-700 text-base">
+                  receive your guest with a good smile
+                </p>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+    
       
    
-    
-    
-
-
-    
-   
+  
     </>
   )
 }
