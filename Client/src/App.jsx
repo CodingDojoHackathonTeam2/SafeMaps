@@ -16,10 +16,12 @@ function App() {
 		<>
 			<Navbar />
 			<Routes>
-				<Route path='/' element={<Landing />} />
+
+        		<Route path='/' element={<Landing />} />
 				<Route path='/login' element={<LogReg />} />
 				<Route path='/map' element={<MapSearch />} />
-				<Route path='/About' element={<About/>}/>
+				
+
 			</Routes>
       <Footer/>
 		</>
