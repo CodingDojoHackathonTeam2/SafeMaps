@@ -40,7 +40,7 @@ const Navbar = () => {
 						</li>
 					</ul>
 				</div>
-				<a class='btn btn-ghost normal-case text-xl'>
+				<a className='btn btn-ghost normal-case text-xl' onClick={() => navigate('/')}>
 					<img src={logo} className='w-8 h-8' alt='' />
 					safeMaps
 				</a>
