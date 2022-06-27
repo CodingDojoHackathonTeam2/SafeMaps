@@ -40,9 +40,11 @@ def test(request):
 
 
 def test2(request):
+    peru = "Jr. Libertad 657, Moyobamba 22001, Perú"
+    sf = "1 Market St. San Francisco CA 94105"
     coordinates = \
-    MapBox_Connector.get_coordinates(street="1 Market St", city="San Francisco", state="CA", postal="94105")[
-        'features'][0]['center']
+    MapBox_Connector.get_coordinates(peru)
+    print("peru")
     pprint(coordinates)
     return render(request, 'index.html', context={"c": coordinates})
 
@@ -126,20 +128,18 @@ def set_profile(request):
                 }
             )
         user = request.user
-        street = form.get("street")
-        city = form.get("city")
-        state = form.get("state")
-        postal = form.get("postal")
-        country = form.get("country")
-        coordinates = MapBox_Connector.get_coordinates(street, city, state, postal)
+        address = form.get('address')
+        try:
+            coordinates = MapBox_Connector.get_coordinates(address)
+        except:
+            return JsonResponse({
+                "success": False,
+                "error": "Could not find Address"
+            })
         Profile.objects.create(
             user=user,
-            street=street,
-            city=city,
-            state=state,
-            postal=postal,
+            address=address,
             coordinates=coordinates,
-            country=country
         )
         return JsonResponse({"success": True})
     except Exception as e:

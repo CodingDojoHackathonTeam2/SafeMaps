@@ -3,34 +3,22 @@ from django.contrib.auth.models import User
 from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
 
-# Create your models here.
-# Change Users to -> User
-class Users(models.Model):
-    firstname=models.CharField(max_length=255)
-    lastname=models.CharField(max_length=255)
-    email=models.EmailField(max_length=255)
-    password= models.CharField(max_length=255)
-    created_at = models.DateTimeField(auto_now_add = True)
-    updated_at = models.DateTimeField(auto_now = True)
-
-    def __str__(self):
-        return f"[MODELS] User | name: {self.firstname}, email: {self.email}"
-
 
 class Profile(models.Model):
-    user=models.OneToOneField(Users, on_delete=models.CASCADE, related_name='profile',primary_key=True)
+    user=models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile',primary_key=True)
+    coordinates=models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
 
     def __str__(self):
-        return f'[MODELS] Profile | name: {self.user.nombre} '
+        return f'[MODELS] Profile | name: {self.user.first_name} '
 
-# RELATIONS
-# many to many
-# many to one
 
 class Announcements(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     name=models.CharField(max_length=255)
     country=models.CharField(max_length=255)
-    city=models.CharField(max_length=255)
+    address=models.CharField(max_length=255)
+    coordinates = models.CharField(max_length=255)
     people_capacity=models.IntegerField(validators=[MinValueValidator(0)])
     lodging_time=models.IntegerField(validators=[MinValueValidator(0)])
     # Identificar la autenticidad del usuario
@@ -41,4 +29,12 @@ class Announcements(models.Model):
 
     def __str__(self):
         return f'[MODELS] Announcement | name: {self.name}'
+
+class Languages(models.Model):
+    pass # enum?
+    # many to one connected to Announcements
+
+class Extras(models.Model):
+    pass #connected to Announcements
+
 
