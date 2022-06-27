@@ -29,6 +29,7 @@ May have to use `call`
 
 (Mac/Linux)
 > source envSafe/bin/activate
+5) pip install django-cors-headers
 4) pip install Django==3.0.0 djangorestframework djangorestframework-simplejwt
 
 <h3>Run server</h3>
