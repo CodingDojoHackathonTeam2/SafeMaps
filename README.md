@@ -35,6 +35,7 @@ May have to use `call`
 
 1) Make Migrations and Migrate
 > python3 path/to/manage.py makemigrations
+
 > python3 path/to/manage.py migrate
 
 2) Run django server
