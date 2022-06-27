@@ -41,3 +41,4 @@ class Announcements(models.Model):
 
     def __str__(self):
         return f'[MODELS] Announcement | name: {self.name}'
+
