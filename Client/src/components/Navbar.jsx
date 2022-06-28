@@ -67,7 +67,7 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a onClick={() => navigate("/Team")}> About Us</a>
+            <a onClick={() => navigate("/team")}> About Us</a>
           </li>
         </ul>
       </div>
