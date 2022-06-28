@@ -14,8 +14,10 @@ import Paypal from "./Paypal";
 import Bank from "../components/icons/Bank";
 import Faq from "../components/icons/Faq";
 import Typewriter from "typewriter-effect";
+import { useNavigate } from "react-router-dom";
 
 const Landing = () => {
+  let navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const handleOnClose = () => setShowModal(false);
 
@@ -60,11 +62,17 @@ const Landing = () => {
         </div>
 
         <div className="mt-10 flex flex-col md:flex-row justify-center content-around gap-8 px-8 md:px-0">
-          <button class="bg-red-500 hover:bg-blue-700 text-white font-bold text-md py-4 px-8 rounded-full">
+          <button
+            class="bg-red-500 hover:bg-blue-700 text-white font-bold text-md py-4 px-8 rounded-full"
+            onClick={() => navigate("/map")}
+          >
             I'm looking for help
           </button>
 
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full">
+          <button
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full"
+            onClick={() => navigate("/login")}
+          >
             I want to help
           </button>
         </div>
