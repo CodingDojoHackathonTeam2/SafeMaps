@@ -32,11 +32,9 @@ const Navbar = () => {
             <li>
               <a onClick={() => navigate("/map")}>Find a Safe Place</a>
             </li>
+
             <li>
-              <a onClick={() => navigate("/login")}>Sign In</a>
-            </li>
-            <li>
-              <a href="#why" className="scroll-smooth">
+              <a onClick={() => navigate("/#why")} className="scroll-smooth">
                 Why help?
               </a>
             </li>
@@ -58,11 +56,13 @@ const Navbar = () => {
           <li>
             <a onClick={() => navigate("/map")}>Find a Safe Place</a>
           </li>
+
           <li>
-            <a onClick={() => navigate("/login")}>Sign In</a>
-          </li>
-          <li>
-            <a href="#why" className="scroll-smooth">
+            <a
+              onClick={() => navigate("/#why")}
+              href="#why"
+              className="scroll-smooth"
+            >
               Why help?
             </a>
           </li>
@@ -76,7 +76,7 @@ const Navbar = () => {
           onClick={() => navigate("/login")}
           class="btn btn-accent bg-yellow-300 hover:bg-yellow-500 text-black font-bold "
         >
-          Sing in
+          Sign in
         </a>
       </div>
     </div>
