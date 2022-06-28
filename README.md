@@ -1,5 +1,8 @@
-# SafeMaps
+# iShelter
 Hackathon Challenge to Build an App to help Ukrainian Refugees find aid
+
+[![logo.png](https://i.postimg.cc/T2z9mYrR/readme.png)](https://postimg.cc/G9jGnR7N)
+
 <h2>Front end to Back End request/response diagram:</h2>
 
 ![image](https://user-images.githubusercontent.com/75331586/175826089-a347086b-1bef-4e9f-af63-ddb56b860e91.png)
@@ -84,6 +87,20 @@ Admin
     </tbody>
 <table>
 
+<h3>Register</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Method</th><th>URI</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>POST</td><td>api/users/register</td>
+        </tr>
+    </tbody>
+<table>
+
 <h3>User Login</h3>
 <table>
     <thead>
@@ -99,6 +116,34 @@ Admin
 <table>
 Requires CSRF Token
 
+<h3>New Announcement</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Method</th><th>URI</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>POST</td><td>api/announcements/create</td>
+        </tr>
+    </tbody>
+<table>
+
+<h3>All Announcements</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Method</th><th>URI</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>GET</td><td>api/announcements/all</td>
+        </tr>
+    </tbody>
+<table>
+
 <h3>Get all profiles</h3>
 <table>
     <thead>
@@ -112,3 +157,26 @@ Requires CSRF Token
         </tr>
     </tbody>
 <table>
+
+<h3>Get all profiles</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Method</th><th>URI</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>GET</td><td>api/v1/profiles</td>
+        </tr>
+    </tbody>
+<table>
+<h2>OUR TEAM</h2>
+
+1. Lee Aarron - **[leeaarron (Github)](https://github.com/leeaarron)**
+2. Stuart Yee - **[Stuart-Yee (Github)](https://github.com/Stuart-Yee)**
+3. René Caceres- **[caceresrene(Github)](https://github.com/caceresrene)**
+4. Jhomar Astuyauri - **[Jhomar1158-ux (Github)](https://github.com/Jhomar1158-ux)**
+5. Lino Cruz - **[LinoCruz (Github)](https://github.com/LinoCruz)**
+6. Damian Cardenas- **[Mauffin (Github)](https://github.com/Mauffin)**
+
