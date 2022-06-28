@@ -4,6 +4,9 @@ import { useState } from 'react';
 import axios from 'axios';
 
 const LogReg = () => {
+	//saving CSRFToken in state
+	const [CSRFTok, setCSRFTok] = useState('');
+	//
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [user, setUser] = useState({
@@ -44,13 +47,34 @@ const LogReg = () => {
 	const login = (event) => {
 		event.preventDefault();
 
+		//S. Yee:
+		const getCSRFa = () => {
+			axios.get("http://localhost:8000/api/csrf/",{})
+			.then((res) => {
+				console.log("whole response", res);
+				console.log(res.data.CSRFToken);
+				setCSRFTok(res.data.CSRFToken);
+				return res.data.CSRFToken;
+			})
+			.catch((err) => {
+				console.log(err.response.data);
+			});
+		}
+		if (CSRFTok ===''){
+			getCSRFa()
+		}
+		console.log(CSRFTok)
+		
 		// Need to send get request to get CSRF token
 		// And then add to header with the key `X-CSRFToken`
 		axios
 			.post('http://localhost:8000/api/users/login', {
 				email: email,
 				password: password,
-			})
+			},{
+				headers: {"X-CSRFToken": CSRFTok}
+			}
+			)
 			.then((res) => {
 				console.log(res, 'res');
 				console.log(res.data, 'is res data!');
