@@ -130,7 +130,14 @@ def register(request):
             first_name=form.get("firstname"),
             last_name=form.get("lastname")
         )
+        coordinates = MapBox_Connector.get_coordinates(form.get("address"))
+        profile = Profile.objects.create(
+            user=user,
+            coordinates=coordinates,
+            address=form.get("address")
+        )
         user.save()
+        profile.save()
         # print(user.username)
         login(request, user)
         return wrap_response(request,
@@ -148,7 +155,7 @@ def register(request):
             }
         )
 
-
+# No longer used
 def set_profile(request):
     try:
         form = get_json(request)
@@ -205,17 +212,33 @@ def create_announcement(request):
             )
         try:
             profile = request.user.profile
-            pprint(dir(request.user))
+            languages = ""
+            if form.get("english_speaker"):
+                languages += "English, "
+            if form.get("ukranian_speaker"):
+                languages += "Ukrainian, "
+            if form.get("russian_speaker"):
+                languages += "Russian, "
+            if len(languages) > 0:
+                languages = languages[:-2]
+            else:
+                languages = "None specified"
             coordinates = MapBox_Connector.get_coordinates(form.get('address'))
             announcement=Announcements.objects.create(
                 name=form.get('name'),
                 country=form.get('country'),
                 address=form.get('address'),
-                people_capacity=form.get('peopleCapacity'),
-                lodging_time=form.get('lodgingTime'),
-                languages=form.get('languages'),
+                people_capacity=form.get('people_capacity'),
+                lodging_time=form.get('lodging_time'),
+                languages=languages,
                 coordinates=coordinates,
-                profile=profile
+                profile=profile,
+                pets=form.get('pets'),
+                legal_assistance=form.get('legal_assistance'),
+                kid_friendly=form.get('kid_friendly'),
+                transportation=form.get('transportation'),
+                childcare_support=form.get('childcare_support'),
+                first_aid=form.get('first_aid'),
             )
             return wrap_response(request,
                 {
@@ -230,6 +253,17 @@ def create_announcement(request):
                     "error": str(e)
                 }
             )
+
+def get_announcements(request):
+    announcements=Announcements.objects.all()
+    response=[]
+    for ann in announcements:
+        this_ann = {
+
+        }
+
+
+    return wrap_response(request, response)
 
 
 
