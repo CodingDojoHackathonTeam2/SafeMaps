@@ -13,22 +13,6 @@ class Profile(models.Model):
         return f'[MODELS] Profile | name: {self.user.first_name} '
 
 
-class Extras(models.Model):
-    pets = models.BooleanField(null=True, blank=True, default=False)
-    legal_assistance= models.BooleanField(null=True, blank=True, default=False)
-    kid_friendly = models.BooleanField(null=True, blank=True, default=False)
-    emergency_medical_assistance=models.BooleanField(null=True, blank=True, default=False)
-    transportation =models.BooleanField(null=True, blank=True, default=False)
-    childcare_support= models.BooleanField(null=True, blank=True, default=False)
-    first_aid = models.BooleanField(null=True, blank=True, default=False)
-
-    created_at = models.DateTimeField(auto_now_add = True)
-    updated_at = models.DateTimeField(auto_now = True)
-
-    def __str__(self):
-        return f'[MODELS] Extras | created_at: {self.created_at}'
-
-
 class Announcements(models.Model):
     name=models.CharField(max_length=255)
     country=models.CharField(max_length=255)
@@ -39,14 +23,29 @@ class Announcements(models.Model):
 
 
     # OneToMany with Profile
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-
-    # ManyToOne with Extras
-    extras = models.ForeignKey(Extras, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile, related_name="announcements", on_delete=models.CASCADE)
 
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
 
     def __str__(self):
         return f'[MODELS] Announcement | name: {self.name}'
+
+
+class Extras(models.Model):
+    pets = models.BooleanField(null=True, blank=True, default=False)
+    legal_assistance = models.BooleanField(null=True, blank=True, default=False)
+    kid_friendly = models.BooleanField(null=True, blank=True, default=False)
+    emergency_medical_assistance = models.BooleanField(null=True, blank=True, default=False)
+    transportation = models.BooleanField(null=True, blank=True, default=False)
+    childcare_support = models.BooleanField(null=True, blank=True, default=False)
+    first_aid = models.BooleanField(null=True, blank=True, default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    # OneToMany with Profile
+    announcement = models.ForeignKey(Announcements, related_name="extras", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'[MODELS] Extras | created_at: {self.created_at}'
 

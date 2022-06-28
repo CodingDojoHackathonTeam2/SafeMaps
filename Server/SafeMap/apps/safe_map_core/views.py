@@ -183,3 +183,11 @@ class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+class AnnouncementsViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Announcements.objects.all()
+    serializer_class = AnnouncementSerializer
+    # permission_classes = [permissions.IsAuthenticated]
