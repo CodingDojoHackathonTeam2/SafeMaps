@@ -5,9 +5,11 @@ Shelter will fund temporary housing for up to 100,000 people fleeing Ukraine ❤
 You can offer your space for this cause for free through iShelter, or make a donation that will help finance the stays of those who need it most.
 
 # Look  our demo here! 
+#### (click on the image below to see the demo)
 
 [![Alt text](https://img.youtube.com/vi/aZou7qTnGCg/0.jpg)](https://youtu.be/aZou7qTnGCg)
 
+## This is our Logo
 
 [![logo.png](https://i.postimg.cc/T2z9mYrR/readme.png)](https://postimg.cc/G9jGnR7N)
 
