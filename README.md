@@ -1,6 +1,9 @@
 # Welcome to iShelter
 Hackathon Challenge to Build an App to help Ukrainian Refugees. 
 
+[![logo.png](https://i.postimg.cc/T2z9mYrR/readme.png)](https://postimg.cc/G9jGnR7N)
+
+
 iShelter will fund temporary housing for up to 100,000 people fleeing Ukraine ❤, regardless of their nationality, racial or ethnic origin, or how they identify themselves.
 You can offer your space for this cause for free through iShelter, or make a donation that will help finance the stays of those who need it most.
 
@@ -10,9 +13,6 @@ You can offer your space for this cause for free through iShelter, or make a don
 [![Alt text](https://img.youtube.com/vi/b2wWidQYi98/0.jpg)](https://youtu.be/b2wWidQYi98)
 
 
-## This is our Logo
-
-[![logo.png](https://i.postimg.cc/T2z9mYrR/readme.png)](https://postimg.cc/G9jGnR7N)
 
 <h2>Front end to Back End request/response diagram:</h2>
 
