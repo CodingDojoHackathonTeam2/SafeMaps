@@ -1,7 +1,7 @@
 # iShelter
 Hackathon Challenge to Build an App to help Ukrainian Refugees. 
 
-Shelter will fund temporary housing for up to 100,000 people fleeing Ukraine ❤, regardless of their nationality, racial or ethnic origin, or how they identify themselves.
+iShelter will fund temporary housing for up to 100,000 people fleeing Ukraine ❤, regardless of their nationality, racial or ethnic origin, or how they identify themselves.
 You can offer your space for this cause for free through iShelter, or make a donation that will help finance the stays of those who need it most.
 
 # Look  our demo here! 
