@@ -158,7 +158,6 @@ Requires CSRF Token
     </tbody>
 <table>
 
-<<<<<<< HEAD
 <h3>Get all profiles</h3>
 <table>
     <thead>
@@ -172,7 +171,6 @@ Requires CSRF Token
         </tr>
     </tbody>
 <table>
-=======
 <h2>OUR TEAM</h2>
 
 1. Lee Aarron - **[leeaarron (Github)](https://github.com/leeaarron)**
@@ -182,4 +180,3 @@ Requires CSRF Token
 5. Lino Cruz - **[LinoCruz (Github)](https://github.com/LinoCruz)**
 6. Damian Cardenas- **[Mauffin (Github)](https://github.com/Mauffin)**
 
->>>>>>> 9d12148d57e633a5ad3b9b6efcf31bb6d4a82baa
