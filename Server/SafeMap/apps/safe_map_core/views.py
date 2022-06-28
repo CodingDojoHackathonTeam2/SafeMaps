@@ -25,10 +25,31 @@ def get_json(request):
     except:
         return {}
 
+def wrap_response(request, json):
+    response = JsonResponse(json)
+    if request.user.is_authenticated:
+        response.set_cookie(
+            "iShelterUserId",
+            value=request.user.id,
+            max_age=7200
+        )
+        response.set_cookie(
+            "iShelterUsername",
+            value=request.user.username,
+            max_age=7200
+        )
+    else:
+        response.set_cookie(
+            "iShelter",
+            value="Not logged in",
+            max_age=1800
+        )
+    return response
+
 
 # Create your views here.
 def get_csrf(request):
-    response = JsonResponse({
+    response = wrap_response(request,{
         'detail': 'CSRF cookie set',
         'CSRFToken': get_token(request)
     })
@@ -50,7 +71,7 @@ def test2(request):
     return render(request, 'index.html', context={"c": coordinates})
 
 def need_login(request):
-    return JsonResponse(
+    return wrap_response(request,
         {
             "success": False,
             "error": "You need to be logged in to do that"
@@ -59,13 +80,13 @@ def need_login(request):
 
 def check_login(request):
     if request.user.is_authenticated:
-        return JsonResponse(
+        return wrap_response(request,
             {
                 "logged_in": True
             }
         )
     else:
-        return JsonResponse(
+        return wrap_response(request,
             {
                 "logged_in": False
             }
@@ -81,10 +102,10 @@ def login_view(request):
     if user is not None:
         login(request, user)
         print("logging in")
-        return JsonResponse({"signed_in": True})
+        return wrap_response(request,{"signed_in": True})
     else:
         print("couldn't login")
-        return JsonResponse({"signed_in": False}, status=401)
+        return wrap_response(request,{"signed_in": False}, status=401)
 
 
 def register(request):
@@ -94,7 +115,7 @@ def register(request):
         form = get_json(request)
         if form == {}:
             print("bad form")
-            return JsonResponse(
+            return wrap_response(request,
                 {
                     "success": False,
                     "error": "Could not parse as JSON",
@@ -112,14 +133,14 @@ def register(request):
         user.save()
         # print(user.username)
         login(request, user)
-        return JsonResponse(
+        return wrap_response(request,
             {
                 "signed_in": True,
                 "create": True
             }
         )
     except Exception as e:
-        return JsonResponse(
+        wrap_response(request,
             {
                 "signed_in": False,
                 "create": False,
@@ -132,7 +153,7 @@ def set_profile(request):
     try:
         form = get_json(request)
         if form == {}:
-            return JsonResponse(
+            wrap_response(request,
                 {
                     "success": False,
                     "error": "Could not parse as JSON",
@@ -144,7 +165,7 @@ def set_profile(request):
         try:
             coordinates = MapBox_Connector.get_coordinates(address)
         except:
-            return JsonResponse({
+            return wrap_response(request,{
                 "success": False,
                 "error": "Could not find Address"
             })
@@ -153,9 +174,9 @@ def set_profile(request):
             address=address,
             coordinates=coordinates,
         )
-        return JsonResponse({"success": True})
+        return wrap_response(request,{"success": True})
     except Exception as e:
-        return JsonResponse({
+        return wrap_response(request,{
             "success": False,
             "error": str(e)
         })
@@ -163,7 +184,7 @@ def set_profile(request):
 
 def logout_user(request):
     logout(request)
-    return JsonResponse(
+    return wrap_response(request,
         {
             "signed_out": True
         }
@@ -176,7 +197,7 @@ def create_announcement(request):
     else:
         form = get_json(request)
         if form == {}:
-            return JsonResponse(
+            return wrap_response(request,
                 {
                     "success": False,
                     "error": "Bad JSON"
@@ -196,14 +217,14 @@ def create_announcement(request):
                 coordinates=coordinates,
                 profile=profile
             )
-            return JsonResponse(
+            return wrap_response(request,
                 {
                     "success": True,
                     "announcementId": announcement.id
                 }
             )
         except Exception as e:
-            return JsonResponse(
+            return wrap_response(request,
                 {
                     "success": False,
                     "error": str(e)
@@ -220,7 +241,7 @@ class SessionView(APIView):
 
     @staticmethod
     def get(request, format=None):
-        return JsonResponse({'isAuthenticated': True})
+        return wrap_response(request,{'isAuthenticated': True})
 
 
 class WhoAmIView(APIView):
@@ -229,7 +250,7 @@ class WhoAmIView(APIView):
 
     @staticmethod
     def get(request, format=None):
-        return JsonResponse({'username': request.user.username})
+        return wrap_response(request,{'username': request.user.username})
 
 
 class ProfileViewSet(viewsets.ModelViewSet):
