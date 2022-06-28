@@ -6,7 +6,8 @@ import Landing from './pages/Landing';
 import Footer from './components/Footer'
 import LogReg from './pages/LogReg';
 import MapSearch from './pages/MapSearch';
-import About from './pages/About';
+import Anounncement from './pages/Anounncement';
+import Team from './pages/Team';
 
 function App() {
 	const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
@@ -16,12 +17,11 @@ function App() {
 		<>
 			<Navbar />
 			<Routes>
-
         		<Route path='/' element={<Landing />} />
 				<Route path='/login' element={<LogReg />} />
 				<Route path='/map' element={<MapSearch />} />
-				
-
+				<Route path='/Anounncement' element={<Anounncement/>}/>
+				<Route path='/Team'element={<Team/>} />
 			</Routes>
       <Footer/>
 		</>
