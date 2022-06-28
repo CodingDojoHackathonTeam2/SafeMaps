@@ -26,7 +26,7 @@ cd SafeMaps
 
 | Technology | LINK |
 | ------ | ------ |
-| JavaScript | [https://es.reactjs.org/docs/getting-started.html](https://es.reactjs.org/docs/getting-started.html) |
+| JavaScript | [https://developer.mozilla.org/es/docs/Web/JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript) |
 | ReactJS | [https://es.reactjs.org/](https://es.reactjs.org/) |
 | React Router DOM | [https://www.npmjs.com/package/react-router-dom](https://www.npmjs.com/package/react-router-dom) |
 | Tailwind CSS | [https://tailwindcss.com/](https://tailwindcss.com/) |
