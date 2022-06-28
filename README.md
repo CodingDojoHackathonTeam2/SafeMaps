@@ -33,7 +33,11 @@ cd SafeMaps
 - [Daisy UI](https://daisyui.com/)
 - [Axios](https://axios-http.com/docs/intro)
 
-<h3>Installation</h3>
+1) Installation of libraries
+> npm install
+
+2) Run the project
+> npm run dev
 
 <h2>BACK-END</h2>
 <h3>Tech Stack</h3>
@@ -44,12 +48,6 @@ cd SafeMaps
 - [MapBox's APIs](https://docs.mapbox.com/api/overview/)
 - [PayPal APIs](https://developer.paypal.com/home)
 - [SqLite](https://www.sqlite.org/index.html)
-
-<h3>Installation</h3>
-
-
----------------
-
 
 1) Create directory above repository
 
