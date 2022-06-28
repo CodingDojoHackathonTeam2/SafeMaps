@@ -99,7 +99,7 @@ const Team = () => {
         <div class="flex pt-24">
             <div data-aos='fade-left' data-aos-duration='1000' className='w-64'>
             <figure class="bg-slate-100 rounded-xl p-8 dark:bg-slate-800">
-                <img class="w-24 h-24 rounded-full mx-auto" src={lino} alt="learon" width="384" height="512"/>
+                <img class="w-24 h-24 rounded-full mx-auto" src={lino} alt="lino" width="384" height="512"/>
                 <div class="pt-6 text-center space-y-4">
                     <figcaption class="font-medium">
                     <div class="text-sky-500 dark:text-sky-400">
@@ -131,8 +131,8 @@ const Team = () => {
                     </div>
                     </figcaption>
                     <blockquote className='inline-flex gap-4'>
-                    <a href='https://github.com/LinoCruz'><img src={git}/></a>
-                    <a href='https://www.linkedin.com/in/lino-cruz-519597234/'><img src={li} className="h-8 w-8"/></a>
+                    <a href='https://github.com/leeaarron'><img src={git}/></a>
+                    <a href='#'><img src={li} className="h-8 w-8"/></a>
                     </blockquote>
                 </div>
             </figure>
@@ -140,7 +140,7 @@ const Team = () => {
             
         </div>
         
- 
+
     </div>
   )
 }
