@@ -12,14 +12,44 @@ You can offer your space for this cause for free through iShelter, or make a don
 
 [![Alt text](https://img.youtube.com/vi/b2wWidQYi98/0.jpg)](https://youtu.be/b2wWidQYi98)
 
-
-
 <h2>Front end to Back End request/response diagram:</h2>
 
 ![image](https://user-images.githubusercontent.com/75331586/175826089-a347086b-1bef-4e9f-af63-ddb56b860e91.png)
 
-<h2>BACK-END:</h2>
+## Installation
+**Clone the Repository**
+```
+git clone https://github.com/CodingDojoHackathonTeam2/SafeMaps.git
+cd SafeMaps
+```
+<h2>FRONT-END</h2>
+<h3>Tech Stack</h3>
+
+- [JavaScript](https://es.reactjs.org/docs/getting-started.html)
+- [ReactJS](https://www.w3schools.com/js/DEFAULT.asp)
+- [React Router DOM](https://www.npmjs.com/package/react-router-dom)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Radix UI](https://www.radix-ui.com/)
+- [Daisy UI](https://daisyui.com/)
+- [Axios](https://axios-http.com/docs/intro)
+
 <h3>Installation</h3>
+
+<h2>BACK-END</h2>
+<h3>Tech Stack</h3>
+
+- [Python](https://docs.python.org/3/)
+- [Django](https://docs.djangoproject.com/en/4.0/)
+- [Django Rest Framework](https://www.django-rest-framework.org/)
+- [MapBox's APIs](https://docs.mapbox.com/api/overview/)
+- [PayPal APIs](https://developer.paypal.com/home)
+- [SqLite](https://www.sqlite.org/index.html)
+
+<h3>Installation</h3>
+
+
+---------------
+
 
 1) Create directory above repository
 
@@ -182,6 +212,18 @@ Requires CSRF Token
         </tr>
     </tbody>
 <table>
+
+<h2>IN THE NEX VERSION OF ISHELTER WE PROJECT OURSELVES TO: </h2>
+
+- Clean up code
+- Migrate from sqlite to a hosted db like Postgres or MySQL
+- Allow hosts to upload pictures
+- Have hosts and refugees list needed items for donors to send
+- Contact or messaging feature from Refugee to Host
+- Not a technology step, but hosts would submit applications and have a background check run
+
+
+
 <h2>OUR TEAM</h2>
 
 1. Lee Aarron - **[leeaarron (Github)](https://github.com/leeaarron)**
