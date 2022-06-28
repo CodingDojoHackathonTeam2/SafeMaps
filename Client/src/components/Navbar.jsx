@@ -39,7 +39,7 @@ const Navbar = () => {
 							<a href='#why' className='scroll-smooth'>Why help?</a>
 						</li>
 						<li>
-							<a onClick={() => navigate('/Team')}> About Team</a>
+							<a onClick={() => navigate('/Team')}> Our Team</a>
 						</li>
 					</ul>
 				</div>
@@ -61,7 +61,7 @@ const Navbar = () => {
 						<a href='#why' className='scroll-smooth'>Why help?</a>
 					</li>
 					<li>
-						<a onClick={() => navigate('/Team')}> About Team</a>
+						<a onClick={() => navigate('/Team')}> Our Team</a>
 					</li>
 				</ul>
 			</div>

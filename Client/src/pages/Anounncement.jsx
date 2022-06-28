@@ -27,7 +27,7 @@ const Anounncement = () => {
 	const Anounncements = (e) => {
 		e.preventDefault();
 		axios
-			.post('http://localhost:8000/api/Anounncements/',{
+			.post('http://localhost:8000/api/Anounncements/create',{
                 name:name,country:country,address:address,people_capacity:people_capacity,
                 lodging_time:lodging_time,language:language,coordinates:coordinates,
                 pets:pets,legal_assistance:legal_assistance,kid_friendly:kid_friendly,
@@ -101,10 +101,10 @@ const Anounncement = () => {
             <label htmlFor='transportation' >transportation: 🚗</label>
             <input type='checkbox' id='transportation' onChange={(e) => setTransportation(e.target.value)}/>
             <br></br>
-            <label htmlFor='childcare_support' >childcare support: </label>
+            <label htmlFor='childcare_support' >childcare support: 🤱 </label>
             <input type='checkbox' id='childcare_support' onChange={(e) => setChildcare_support(e.target.value)}/>
             <br></br>
-            <label htmlFor='first_aid' >first_aid</label>
+            <label htmlFor='first_aid' >first_aid:🏥</label>
             <input type='checkbox' id='first_aid' onChange={(e) => setFirst_aid(e.target.value)}/>
             <br></br>
                 
