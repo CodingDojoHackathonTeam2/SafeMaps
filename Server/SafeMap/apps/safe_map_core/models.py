@@ -21,6 +21,14 @@ class Announcements(models.Model):
     lodging_time=models.IntegerField(validators=[MinValueValidator(0)])
     languages = models.CharField(max_length=255)
 
+    pets = models.BooleanField(null=True, blank=True, default=False)
+    legal_assistance = models.BooleanField(null=True, blank=True, default=False)
+    kid_friendly = models.BooleanField(null=True, blank=True, default=False)
+    emergency_medical_assistance = models.BooleanField(null=True, blank=True, default=False)
+    transportation = models.BooleanField(null=True, blank=True, default=False)
+    childcare_support = models.BooleanField(null=True, blank=True, default=False)
+    first_aid = models.BooleanField(null=True, blank=True, default=False)
+
 
     # OneToMany with Profile
     profile = models.ForeignKey(Profile, related_name="announcements", on_delete=models.CASCADE)
@@ -31,21 +39,4 @@ class Announcements(models.Model):
     def __str__(self):
         return f'[MODELS] Announcement | name: {self.name}'
 
-
-class Extras(models.Model):
-    pets = models.BooleanField(null=True, blank=True, default=False)
-    legal_assistance = models.BooleanField(null=True, blank=True, default=False)
-    kid_friendly = models.BooleanField(null=True, blank=True, default=False)
-    emergency_medical_assistance = models.BooleanField(null=True, blank=True, default=False)
-    transportation = models.BooleanField(null=True, blank=True, default=False)
-    childcare_support = models.BooleanField(null=True, blank=True, default=False)
-    first_aid = models.BooleanField(null=True, blank=True, default=False)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    # OneToMany with Profile
-    announcement = models.ForeignKey(Announcements, related_name="extras", on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f'[MODELS] Extras | created_at: {self.created_at}'
 
