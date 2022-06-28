@@ -42,12 +42,14 @@ cd SafeMaps
 
 <h2>BACK-END</h2>
 
-- [Python](https://docs.python.org/3/)
-- [Django](https://docs.djangoproject.com/en/4.0/)
-- [Django Rest Framework](https://www.django-rest-framework.org/)
-- [MapBox's APIs](https://docs.mapbox.com/api/overview/)
-- [PayPal APIs](https://developer.paypal.com/home)
-- [SqLite](https://www.sqlite.org/index.html)
+| Technology | LINK |
+| ------ | ------ |
+| Python | [https://docs.python.org/3/](https://docs.python.org/3/) |
+| Django | [https://docs.djangoproject.com/en/4.0/](https://docs.djangoproject.com/en/4.0/) |
+| Django Rest Framework | [https://www.django-rest-framework.org/](https://www.django-rest-framework.org/) |
+| MapBox's APIs | [https://docs.mapbox.com/api/overview/](https://docs.mapbox.com/api/overview/) |
+| PayPal APIs | [https://developer.paypal.com/home](https://developer.paypal.com/home) |
+| SqLite | [https://www.sqlite.org/index.html](https://www.sqlite.org/index.html) |
 
 1) Create directory above repository
 
