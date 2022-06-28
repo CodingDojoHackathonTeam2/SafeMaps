@@ -24,6 +24,7 @@ const Anounncement = () => {
 
 	const Anounncements = (e) => {
 		e.preventDefault();
+
 		console.log({
 			name: name,
 			country: country,
@@ -216,6 +217,7 @@ const Anounncement = () => {
 							type='submit'
 							className='bg-blue-500 rounded p-2 my-4 text-white w-full'
 						>
+
 							Submit
 						</button>
 					</div>
