@@ -26,7 +26,10 @@ def get_json(request):
         return {}
 
 def wrap_response(request, json):
-    response = JsonResponse(json)
+    if type(json) == dict:
+        response = JsonResponse(json)
+    elif type(json) == list:
+        response = JsonResponse(json, safe=False)
     if request.user.is_authenticated:
         response.set_cookie(
             "iShelterUserId",
@@ -258,11 +261,25 @@ def get_announcements(request):
     announcements=Announcements.objects.all()
     response=[]
     for ann in announcements:
+        services = {"kidFriendly": False, "petFriendly": False, "stay": "short"}
+        if ann.kid_friendly:
+            services["kidFriendly"] = True
+        if ann.pets:
+            services["petFriendly"] = True
+        if ann.lodging_time > 7:
+            services["stay"] = "long"
+        comma = ann.coordinates.index(",")
+        a = float(ann.coordinates[1:comma])
+        b = float(ann.coordinates[comma+1:-1])
         this_ann = {
-
+            "volunteer_name": ann.profile.user.get_full_name(),
+            "address": ann.address,
+            "services": services,
+            "coords": [a, b],
+            "type": 'house', # will clarify later
+            "people_capacity": ann.people_capacity
         }
-
-
+        response.append(this_ann)
     return wrap_response(request, response)
 
 
