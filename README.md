@@ -23,15 +23,16 @@ git clone https://github.com/CodingDojoHackathonTeam2/SafeMaps.git
 cd SafeMaps
 ```
 <h2>FRONT-END</h2>
-<h3>Tech Stack</h3>
 
-- [JavaScript](https://es.reactjs.org/docs/getting-started.html)
-- [ReactJS](https://www.w3schools.com/js/DEFAULT.asp)
-- [React Router DOM](https://www.npmjs.com/package/react-router-dom)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Radix UI](https://www.radix-ui.com/)
-- [Daisy UI](https://daisyui.com/)
-- [Axios](https://axios-http.com/docs/intro)
+| Technology | LINK |
+| ------ | ------ |
+| JavaScript | [https://es.reactjs.org/docs/getting-started.html](https://es.reactjs.org/docs/getting-started.html) |
+| ReactJS | [https://es.reactjs.org/](https://es.reactjs.org/) |
+| React Router DOM | [https://www.npmjs.com/package/react-router-dom](https://www.npmjs.com/package/react-router-dom) |
+| Tailwind CSS | [https://tailwindcss.com/](https://tailwindcss.com/) |
+| Radix UI | [https://www.radix-ui.com/](https://www.radix-ui.com/) |
+| Daisy UI | [https://daisyui.com/](https://daisyui.com/) |
+| Axios | [https://axios-http.com/docs/intro](https://axios-http.com/docs/intro) |
 
 1) Installation of libraries
 > npm install
@@ -40,7 +41,6 @@ cd SafeMaps
 > npm run dev
 
 <h2>BACK-END</h2>
-<h3>Tech Stack</h3>
 
 - [Python](https://docs.python.org/3/)
 - [Django](https://docs.djangoproject.com/en/4.0/)
