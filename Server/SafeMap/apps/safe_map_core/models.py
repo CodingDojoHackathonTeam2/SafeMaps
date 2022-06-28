@@ -20,6 +20,7 @@ class Announcements(models.Model):
     coordinates = models.CharField(max_length=255)
     people_capacity=models.IntegerField(validators=[MinValueValidator(0)])
     lodging_time=models.IntegerField(validators=[MinValueValidator(0)])
+    languages = models.CharField(max_length=255)
 
 
     # OneToMany with Profile

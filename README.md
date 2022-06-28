@@ -84,6 +84,20 @@ Admin
     </tbody>
 <table>
 
+<h3>Register</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Method</th><th>URI</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>POST</td><td>api/users/register</td>
+        </tr>
+    </tbody>
+<table>
+
 <h3>User Login</h3>
 <table>
     <thead>
@@ -98,6 +112,48 @@ Admin
     </tbody>
 <table>
 Requires CSRF Token
+
+<h3>New Announcement</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Method</th><th>URI</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>POST</td><td>api/announcements/create</td>
+        </tr>
+    </tbody>
+<table>
+
+<h3>All Announcements</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Method</th><th>URI</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>GET</td><td>api/announcements/all</td>
+        </tr>
+    </tbody>
+<table>
+
+<h3>Get all profiles</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Method</th><th>URI</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>GET</td><td>api/v1/profiles</td>
+        </tr>
+    </tbody>
+<table>
 
 <h3>Get all profiles</h3>
 <table>
