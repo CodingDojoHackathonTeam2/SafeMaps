@@ -19,4 +19,5 @@ urlpatterns = [
     path('api/csrf/', views.get_csrf, name='api-csrf'),
     path('api/session/', views.SessionView.as_view(), name='api-session'),
     path('api/whoami/', views.WhoAmIView.as_view(), name='api-whoami'),
+    path('api/announcements', views.AnnouncementsViewSet.as_view({'get': 'list'})),
 ]
