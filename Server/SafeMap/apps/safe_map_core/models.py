@@ -12,7 +12,6 @@ class Profile(models.Model):
     def __str__(self):
         return f'[MODELS] Profile | name: {self.user.first_name} '
 
-
 class Announcements(models.Model):
     name=models.CharField(max_length=255)
     country=models.CharField(max_length=255)

@@ -8,7 +8,25 @@
 </head>
 <body>
     <h1>This is a Jhomar HTML test! :D</h1>
-    {% csrf_token %}
-    <p>{{c}}</p>
+    <a href="/announcement/create">Item create</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Country</th>
+                <th>Addres</th>+
+                <th>People Capacity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in all_whishess %}
+            <tr>
+                <td>{{item.item}}</td>
+                <td>{{item.added_by.first_name}}</td>
+                <td>{{item.created_at}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>

@@ -1,5 +1,8 @@
-# SafeMaps
+# iShelter
 Hackathon Challenge to Build an App to help Ukrainian Refugees find aid
+
+[![logo.png](https://i.postimg.cc/T2z9mYrR/readme.png)](https://postimg.cc/G9jGnR7N)
+
 <h2>Front end to Back End request/response diagram:</h2>
 
 ![image](https://user-images.githubusercontent.com/75331586/175826089-a347086b-1bef-4e9f-af63-ddb56b860e91.png)
@@ -112,3 +115,13 @@ Requires CSRF Token
         </tr>
     </tbody>
 <table>
+
+<h2>OUR TEAM</h2>
+
+1. Lee Aarron - **[leeaarron (Github)](https://github.com/leeaarron)**
+2. Stuart Yee - **[Stuart-Yee (Github)](https://github.com/Stuart-Yee)**
+3. René Caceres- **[caceresrene(Github)](https://github.com/caceresrene)**
+4. Jhomar Astuyauri - **[Jhomar1158-ux (Github)](https://github.com/Jhomar1158-ux)**
+5. Lino Cruz - **[LinoCruz (Github)](https://github.com/LinoCruz)**
+6. Damian Cardenas- **[Mauffin (Github)](https://github.com/Mauffin)**
+
