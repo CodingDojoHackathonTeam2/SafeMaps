@@ -20,4 +20,7 @@ urlpatterns = [
     path('api/session/', views.SessionView.as_view(), name='api-session'),
     path('api/whoami/', views.WhoAmIView.as_view(), name='api-whoami'),
     path('api/announcements', views.AnnouncementsViewSet.as_view({'get': 'list'})),
+    path('announcement/create', views.CreateAnnoucement),
+    path('annoucement-confirm/create', views.ConfirmCreateAnnoucement),
+    
 ]

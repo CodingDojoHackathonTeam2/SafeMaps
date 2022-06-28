@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth import authenticate, login, logout
 from .models import *
 from .serializers import *
@@ -156,6 +156,25 @@ def logout_user(request):
             "signed_out": True
         }
     )
+
+# CRUD ANNOUCEMNT
+def CreateAnnoucement(request):
+    return render(request, 'createAnnoucement.html')
+
+
+def ConfirmCreateAnnoucement(request):
+    if request.method == 'GET':
+        return render(request,'create.html' )
+    elif request.method == 'POST':
+        # id???
+        user = Profile.objects.get(id="ID")
+        annoucement= Announcements.objects.create(item=request.POST['name'], added_by=user )
+        print(annoucement.objects.all())
+        annoucement.objects.add(user)
+        print(annoucement.objects.all())
+        return redirect('/jhomarTest')
+
+
 
 
 class SessionView(APIView):

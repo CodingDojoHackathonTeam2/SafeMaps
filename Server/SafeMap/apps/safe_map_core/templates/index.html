@@ -19,11 +19,12 @@
             </tr>
         </thead>
         <tbody>
-            {% for item in all_whishess %}
+            {% for i in all_annoucement %}
             <tr>
-                <td>{{item.item}}</td>
-                <td>{{item.added_by.first_name}}</td>
-                <td>{{item.created_at}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.country}}</td>
+                <td>{{i.address}}</td>
+                <td>{{i.people_capacity}}</td>
             </tr>
             {% endfor %}
         </tbody>
