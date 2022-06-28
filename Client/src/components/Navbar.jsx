@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   let navigate = useNavigate();
 
+
   return (
     <div class="navbar bg-blue-500 text-white sticky top-0 z-50">
       <div class="navbar-start">
@@ -81,6 +82,7 @@ const Navbar = () => {
       </div>
     </div>
   );
+
 };
 
 export default Navbar;

@@ -3,7 +3,7 @@ import { Routes, Route, Router } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import Landing from './pages/Landing';
-import Footer from './components/Footer'
+import Footer from './components/Footer';
 import LogReg from './pages/LogReg';
 import MapSearch from './pages/MapSearch';
 import Anounncement from './pages/Anounncement';
@@ -17,13 +17,13 @@ function App() {
 		<>
 			<Navbar />
 			<Routes>
-        		<Route path='/' element={<Landing />} />
+				<Route path='/' element={<Landing />} />
 				<Route path='/login' element={<LogReg />} />
 				<Route path='/map' element={<MapSearch />} />
-				<Route path='/anounncement' element={<Anounncement/>}/>
-				<Route path='/team'element={<Team/>} />
+				<Route path='/anounncement' element={<Anounncement />} />
+				<Route path='/team' element={<Team />} />
 			</Routes>
-      <Footer/>
+			<Footer />
 		</>
 	);
 }

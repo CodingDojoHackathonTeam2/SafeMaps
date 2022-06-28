@@ -24,6 +24,7 @@ const Anounncement = () => {
 
 	const Anounncements = (e) => {
 		e.preventDefault();
+
 		console.log({
 			name: name,
 			country: country,
@@ -75,7 +76,7 @@ const Anounncement = () => {
 			<div className='h-[85vh]'>
 				<form
 					onSubmit={Anounncements}
-					className='max-w-md mx-auto border-2 rounded p-4 my-4 bg-slate-200'
+					className='max-w-md border-2 rounded p-4 my-4 bg-slate-200 mx-8 md:mx-auto'
 				>
 					<h3 className='text-center font-bold text-lg'>Host a Ukranian 💛</h3>
 					<section className='flex flex-col'>
@@ -216,6 +217,7 @@ const Anounncement = () => {
 							type='submit'
 							className='bg-blue-500 rounded p-2 my-4 text-white w-full'
 						>
+
 							Submit
 						</button>
 					</div>

@@ -13,6 +13,7 @@ const LogReg = () => {
 		firstname: '',
 		lastname: '',
 		email: '',
+		address: '',
 		password: '',
 		confirmPassword: '',
 	});
@@ -26,22 +27,26 @@ const LogReg = () => {
 
 	const register = (e) => {
 		e.preventDefault();
-		axios
-			.post('http://localhost:8000/api/users/register', user)
-			.then((res) => {
-				console.log(res.data);
-				setUser({
-					firstname: '',
-					lastname: '',
-					email: '',
-					password: '',
-					confirmPassword: '',
-				});
-			})
-			.catch((err) => {
-				console.log(err);
-				setErrors(err.response.data.errors);
-			});
+
+		console.log(user);
+
+		// axios
+		// 	.post('http://localhost:8000/api/users/register', user)
+		// 	.then((res) => {
+		// 		console.log(res.data);
+		// 		setUser({
+		// 			firstname: '',
+		// 			lastname: '',
+		// 			email: '',
+		// 			address: '',
+		// 			password: '',
+		// 			confirmPassword: '',
+		// 		});
+		// 	})
+		// 	.catch((err) => {
+		// 		console.log(err);
+		// 		setErrors(err.response.data.errors);
+		// 	});
 	};
 
 	const login = (event) => {
@@ -49,31 +54,35 @@ const LogReg = () => {
 
 		//S. Yee:
 		const getCSRFa = () => {
-			axios.get("http://localhost:8000/api/csrf/",{})
-			.then((res) => {
-				console.log("whole response", res);
-				console.log(res.data.CSRFToken);
-				setCSRFTok(res.data.CSRFToken);
-				return res.data.CSRFToken;
-			})
-			.catch((err) => {
-				console.log(err.response.data);
-			});
+			axios
+				.get('http://localhost:8000/api/csrf/', {})
+				.then((res) => {
+					console.log('whole response', res);
+					console.log(res.data.CSRFToken);
+					setCSRFTok(res.data.CSRFToken);
+					return res.data.CSRFToken;
+				})
+				.catch((err) => {
+					console.log(err.response.data);
+				});
+		};
+		if (CSRFTok === '') {
+			getCSRFa();
 		}
-		if (CSRFTok ===''){
-			getCSRFa()
-		}
-		console.log(CSRFTok)
-		
+		console.log(CSRFTok);
+
 		// Need to send get request to get CSRF token
 		// And then add to header with the key `X-CSRFToken`
 		axios
-			.post('http://localhost:8000/api/users/login', {
-				email: email,
-				password: password,
-			},{
-				headers: {"X-CSRFToken": CSRFTok}
-			}
+			.post(
+				'http://localhost:8000/api/users/login',
+				{
+					email: email,
+					password: password,
+				},
+				{
+					headers: { 'X-CSRFToken': CSRFTok },
+				}
 			)
 			.then((res) => {
 				console.log(res, 'res');
@@ -156,11 +165,19 @@ const LogReg = () => {
 								name='password'
 								onChange={(e) => handleChange(e)}
 							/>
-							<label for='confirmpassword'>Confirm Password</label>
+							<label for='confirmPassword'>Confirm Password</label>
 							<input
 								className='px-2 rounded outline-none bg-white focus:ring-2 ring-blue-500'
-								name='confirmpassword'
+								name='confirmPassword'
 								type='password'
+								onChange={(e) => handleChange(e)}
+							/>
+							<label for='address'>Address</label>
+							<input
+								className='px-2 rounded outline-none bg-white focus:ring-2 ring-blue-500'
+								name='address'
+								type='text'
+								placeholder='Street 123, City, Country'
 								onChange={(e) => handleChange(e)}
 							/>
 							<button
