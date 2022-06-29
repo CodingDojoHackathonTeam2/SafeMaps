@@ -32,10 +32,17 @@ ALLOWED_HOSTS = ["http://localhost:3000", "localhost", '127.0.0.1' ] # Adding Re
 CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = (
-
        'http://localhost:3000',
-
 )
+
+"""
+PER SOURCE 3
+"""
+CORS_ALLOWED_ORIGINS = [
+"http://localhost:3000",
+]
+
+CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
@@ -55,7 +62,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware', !!Must enable for PROD
+    # 'django.middleware.csrf.CsrfViewMiddleware', #!!Must enable for PROD
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -173,5 +180,6 @@ Added per source 1
 References
 1. Source  https://levelup.gitconnected.com/full-stack-web-tutorial-django-react-js-jwt-auth-rest-bootstrap-pagination-b00ebf7866c1
 2. Source https://testdriven.io/blog/django-spa-auth/#session-vs-token-based-auth
+3. Source https://www.stackhawk.com/blog/django-cors-guide/
 """
 

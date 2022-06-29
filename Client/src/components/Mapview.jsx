@@ -1,10 +1,15 @@
 import { useState, useRef, useEffect, useContext } from 'react';
 import { Map, Marker } from 'mapbox-gl';
 import { useMap } from '../context/MapContext';
+import axios from 'axios';
+
 
 const Mapview = () => {
 	// Fake API response
 	// test
+
+	// const [pins, setPins] = useState([]);
+
 	const DB = {
 		message: 'successful',
 		res: [
@@ -36,12 +41,25 @@ const Mapview = () => {
 		const map = new Map({
 			container: mapDiv.current, // container ID
 			style: 'mapbox://styles/mapbox/streets-v11', // style URL
-			center: [-70.652817, -33.50118], // starting position [lng, lat]
+			// center: [-70.652817, -33.50118], // starting position [lng, lat]
+			center: [-122.40808, 37.68561],
 			zoom: 11, // starting zoom
 		});
 
 		// set map recibes the map when its created and the places where markes should go, ill document this better tomorrow night - René
-		setMap(map, DB.res);
+		// setMap(map, DB.res);
+		axios
+		.get('http://localhost:8000/api/announcements/all', {data: null}, {withCredentials: true})
+		.then((res) => {
+			console.log('whole response', res);
+			console.log('data response', res.data);
+			setMap(map, res.data);
+		})
+		.catch((err) => {
+			console.log(err.response.data);
+		});
+
+		// setMap(map, DB.res);
 	}, []);
 
 	return (

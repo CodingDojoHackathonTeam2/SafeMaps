@@ -30,23 +30,23 @@ const LogReg = () => {
 
 		console.log(user);
 
-		// axios
-		// 	.post('http://localhost:8000/api/users/register', user)
-		// 	.then((res) => {
-		// 		console.log(res.data);
-		// 		setUser({
-		// 			firstname: '',
-		// 			lastname: '',
-		// 			email: '',
-		// 			address: '',
-		// 			password: '',
-		// 			confirmPassword: '',
-		// 		});
-		// 	})
-		// 	.catch((err) => {
-		// 		console.log(err);
-		// 		setErrors(err.response.data.errors);
-		// 	});
+		axios
+			.post('http://localhost:8000/api/users/register', user, {withCredentials: true})
+			.then((res) => {
+				console.log(res.data);
+				setUser({
+					firstname: '',
+					lastname: '',
+					email: '',
+					address: '',
+					password: '',
+					confirmPassword: '',
+				});
+			})
+			.catch((err) => {
+				console.log(err);
+				setErrors(err.response.data.errors);
+			});
 	};
 
 	const login = (event) => {
@@ -71,6 +71,8 @@ const LogReg = () => {
 		}
 		console.log(CSRFTok);
 
+		axios.post('http://localhost:8000/api/users/logout').then((res)=>{
+
 		// Need to send get request to get CSRF token
 		// And then add to header with the key `X-CSRFToken`
 		axios
@@ -82,6 +84,7 @@ const LogReg = () => {
 				},
 				{
 					headers: { 'X-CSRFToken': CSRFTok },
+					withCredentials: true,
 				}
 			)
 			.then((res) => {
@@ -91,7 +94,7 @@ const LogReg = () => {
 			})
 			.catch((err) => {
 				console.log(err.response.data);
-			});
+			})} );
 	};
 
 	return (

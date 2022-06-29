@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import * as Tabs from '@radix-ui/react-tabs';
+import { useNavigate } from "react-router-dom";
 
 const Anounncement = () => {
+	let navigate = useNavigate();
 	const [name, setName] = useState('');
 	const [country, setCountry] = useState('');
 	const [address, setAddress] = useState('');
@@ -41,34 +43,34 @@ const Anounncement = () => {
 			childcare_support: childcare_support,
 			first_aid: first_aid,
 		});
-		// axios
-		// 	.post('http://localhost:8000/api/Anounncements/', {
-		// 		name: name,
-		// 		country: country,
-		// 		address: address,
-		// 		people_capacity: people_capacity,
-		// 		lodging_time: lodging_time,
-		// 		russian_speaker: language,
-		// 		ukranian_speaker: language,
-		// 		english_speaker: language,
-		// 		coordinates: coordinates,
-		// 		pets: pets,
-		// 		legal_assistance: legal_assistance,
-		// 		kid_friendly: kid_friendly,
-		// 		transportation: transportation,
-		// 		childcare_support: childcare_support,
-		// 		first_aid: first_aid,
-		// 	})
-		// 	.then((res) => {
-		// 		console.log(res, 'res');
-		// 		console.log(res.data, 'is res data!');
-		// 		navigate('/map');
-		// 	})
+		axios
+			.post('http://localhost:8000/api/announcements/create', {
+				name: name,
+				country: country,
+				address: address,
+				people_capacity: people_capacity,
+				lodging_time: lodging_time,
+				// russian_speaker: language,
+				// ukranian_speaker: language,
+				// english_speaker: language,
+				// coordinates: coordinates,
+				pets: pets,
+				legal_assistance: legal_assistance,
+				kid_friendly: kid_friendly,
+				transportation: transportation,
+				childcare_support: childcare_support,
+				first_aid: first_aid,
+			}, {withCredentials: true})
+			.then((res) => {
+				console.log(res, 'res');
+				console.log(res.data, 'is res data!');
+				navigate('/map');
+			})
 
-		// 	.catch((err) => {
-		// 		console.log(err);
-		// 		setErrors(err.response.data.errors);
-		// 	});
+			.catch((err) => {
+				console.log(err);
+				setErrors(err.response.data.errors);
+			});
 	};
 
 	return (
