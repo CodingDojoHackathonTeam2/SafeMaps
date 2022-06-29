@@ -2,8 +2,10 @@ import React from 'react';
 import * as Tabs from '@radix-ui/react-tabs';
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const LogReg = () => {
+	let navigate = useNavigate();
 	//saving CSRFToken in state
 	const [CSRFTok, setCSRFTok] = useState('');
 	//

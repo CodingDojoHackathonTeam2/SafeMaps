@@ -81,6 +81,9 @@ def need_login(request):
         }
     )
 
+def index(request):
+    return redirect("/admin")
+
 def check_login(request):
     if request.user.is_authenticated:
         return wrap_response(request,
