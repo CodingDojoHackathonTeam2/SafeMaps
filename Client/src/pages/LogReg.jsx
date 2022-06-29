@@ -44,6 +44,7 @@ const LogReg = () => {
 					password: '',
 					confirmPassword: '',
 				});
+				navigate('/anounncement');
 			})
 			.catch((err) => {
 				console.log(err);
@@ -92,7 +93,7 @@ const LogReg = () => {
 			.then((res) => {
 				console.log(res, 'res');
 				console.log(res.data, 'is res data!');
-				navigate('/');
+				navigate('/anounncement');
 			})
 			.catch((err) => {
 				console.log(err.response.data);

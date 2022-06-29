@@ -79,7 +79,10 @@ const Context = ({ children }) => {
 				}
 			</ul>
 			`);
-				new Marker().setLngLat(coords).setPopup(popup).addTo(map);
+				new Marker({
+					color: "#f55742",
+					draggable: false
+					}).setLngLat(coords).setPopup(popup).addTo(map);
 			}
 		);
 
