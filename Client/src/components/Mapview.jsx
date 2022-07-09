@@ -42,8 +42,8 @@ const Mapview = () => {
 			container: mapDiv.current, // container ID
 			style: 'mapbox://styles/mapbox/streets-v11', // style URL
 			// center: [-70.652817, -33.50118], // starting position [lng, lat]
-			center: [-122.40808, 37.68561],
-			zoom: 11, // starting zoom
+			center: [23.23471227826963, 51.39569747015432],
+			zoom: 5, // starting zoom
 		});
 
 		// set map recibes the map when its created and the places where markes should go, ill document this better tomorrow night - René
