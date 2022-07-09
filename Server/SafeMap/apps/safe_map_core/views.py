@@ -25,11 +25,11 @@ def get_json(request):
     except:
         return {}
 
-def wrap_response(request, json):
+def wrap_response(request, json, status=None):
     if type(json) == dict:
-        response = JsonResponse(json)
+        response = JsonResponse(json, status=status)
     elif type(json) == list:
-        response = JsonResponse(json, safe=False)
+        response = JsonResponse(json, status=status, safe=False)
     if request.user.is_authenticated:
         response.set_cookie(
             "iShelterUserId",
@@ -80,6 +80,9 @@ def need_login(request):
             "error": "You need to be logged in to do that"
         }
     )
+
+def index(request):
+    return redirect("/admin")
 
 def check_login(request):
     if request.user.is_authenticated:
@@ -202,6 +205,7 @@ def logout_user(request):
 
 @login_required(login_url='/no/access')
 def create_announcement(request):
+    print("cookies", request.COOKIES)
     if request.method != "POST":
         return redirect("api/announcements/all")
     else:
@@ -258,6 +262,7 @@ def create_announcement(request):
             )
 
 def get_announcements(request):
+    print("cookies:", request.COOKIES)
     announcements=Announcements.objects.all()
     response=[]
     for ann in announcements:

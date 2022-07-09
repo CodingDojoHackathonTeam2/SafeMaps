@@ -2,8 +2,10 @@ import React from 'react';
 import * as Tabs from '@radix-ui/react-tabs';
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const LogReg = () => {
+	let navigate = useNavigate();
 	//saving CSRFToken in state
 	const [CSRFTok, setCSRFTok] = useState('');
 	//
@@ -30,23 +32,26 @@ const LogReg = () => {
 
 		console.log(user);
 
-		// axios
-		// 	.post('http://localhost:8000/api/users/register', user)
-		// 	.then((res) => {
-		// 		console.log(res.data);
-		// 		setUser({
-		// 			firstname: '',
-		// 			lastname: '',
-		// 			email: '',
-		// 			address: '',
-		// 			password: '',
-		// 			confirmPassword: '',
-		// 		});
-		// 	})
-		// 	.catch((err) => {
-		// 		console.log(err);
-		// 		setErrors(err.response.data.errors);
-		// 	});
+		axios.post('http://localhost:8000/api/users/logout').then((res) => {
+			axios
+				.post('http://localhost:8000/api/users/register', user, { withCredentials: true })
+				.then((res) => {
+					console.log(res.data);
+					setUser({
+						firstname: '',
+						lastname: '',
+						email: '',
+						address: '',
+						password: '',
+						confirmPassword: '',
+					});
+					navigate('/anounncement');
+				})
+				.catch((err) => {
+					console.log(err);
+					setErrors(err.response.data.errors);
+				})
+		});
 	};
 
 	const login = (event) => {
@@ -71,6 +76,8 @@ const LogReg = () => {
 		}
 		console.log(CSRFTok);
 
+		axios.post('http://localhost:8000/api/users/logout').then((res)=>{
+
 		// Need to send get request to get CSRF token
 		// And then add to header with the key `X-CSRFToken`
 		axios
@@ -82,16 +89,17 @@ const LogReg = () => {
 				},
 				{
 					headers: { 'X-CSRFToken': CSRFTok },
+					withCredentials: true,
 				}
 			)
 			.then((res) => {
 				console.log(res, 'res');
 				console.log(res.data, 'is res data!');
-				navigate('/');
+				navigate('/anounncement');
 			})
 			.catch((err) => {
 				console.log(err.response.data);
-			});
+			})} );
 	};
 
 	return (

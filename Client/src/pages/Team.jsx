@@ -124,7 +124,7 @@ const Team = () => {
                 <div class="pt-6 text-center space-y-4">
                     <figcaption class="font-medium">
                     <div class="text-sky-500 dark:text-sky-400">
-                    Learon
+                    Lee Aarron
                     </div>
                     <div class="text-slate-700 dark:text-slate-500">
                     Front - end
