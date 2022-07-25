@@ -1,6 +1,12 @@
 from django.http import JsonResponse
 import json
 
+"""
+Custom utility functions for views
+Partitioned to keep views.py uncluttered
+S. Yee 7/24/2022
+"""
+
 def wrap_response(request, json, status=None):
     if type(json) == dict:
         response = JsonResponse(json, status=status)
