@@ -7,47 +7,14 @@ from rest_framework import permissions
 from django.middleware.csrf import get_token
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
-import json
+from rest_framework.decorators import api_view
 from pprint import pprint
 from .ext_apis import MapBox_Connector
-
-from django.http import JsonResponse
-
-
-# convert request body to JSON
-def get_json(request):
-    try:
-        request_body = json.loads(request.body)
-        return request_body
-    except:
-        return {}
-
-def wrap_response(request, json, status=None):
-    if type(json) == dict:
-        response = JsonResponse(json, status=status)
-    elif type(json) == list:
-        response = JsonResponse(json, status=status, safe=False)
-    if request.user.is_authenticated:
-        response.set_cookie(
-            "iShelterUserId",
-            value=request.user.id,
-            max_age=7200
-        )
-        response.set_cookie(
-            "iShelterUsername",
-            value=request.user.username,
-            max_age=7200
-        )
-    else:
-        response.set_cookie(
-            "iShelter",
-            value="Not logged in",
-            max_age=1800
-        )
-    return response
+from apps.app_utils import wrap_response, get_json, bad_request, req_methods
 
 
 # Create your views here.
@@ -78,7 +45,8 @@ def need_login(request):
         {
             "success": False,
             "error": "You need to be logged in to do that"
-        }
+        },
+        status=401
     )
 
 def index(request):
@@ -203,6 +171,8 @@ def logout_user(request):
         }
     )
 
+
+
 @login_required(login_url='/no/access')
 def create_announcement(request):
     print("cookies", request.COOKIES)
@@ -261,6 +231,7 @@ def create_announcement(request):
                 }
             )
 
+@req_methods(["GET"])
 def get_announcements(request):
     print("cookies:", request.COOKIES)
     announcements=Announcements.objects.all()
@@ -282,12 +253,99 @@ def get_announcements(request):
             "services": services,
             "coords": [a, b],
             "type": 'house', # will clarify later
-            "people_capacity": ann.people_capacity
+            "people_capacity": ann.people_capacity,
+            "id": ann.id
         }
         response.append(this_ann)
     return wrap_response(request, response)
 
+@login_required(login_url='/no/access')
+@req_methods(["PATCH"])
+def deactivate_announcement(request, a_id):
+    announcement = Announcements.objects.get(id=a_id)
+    if announcement.profile != request.user.profile:
+        return bad_request(request, "incorrect user", 403)
+    announcement.active = False
+    announcement.save()
+    return wrap_response(
+        request,
+        {
+            "success": True,
+            "message": "Deactivated announcement"
+        }
+    )
 
+@login_required(login_url='/no/access')
+@req_methods(["PUT"])
+def edit_announcement(request, a_id):
+    print(request.method)
+    announcement = Announcements.objects.get(id=a_id)
+    if announcement.profile != request.user.profile:
+        return bad_request(request, "incorrect user", 403)
+    else:
+        form = get_json(request)
+        if form == {}:
+            return wrap_response(request,
+                {
+                    "success": False,
+                    "error": "Bad JSON"
+                }
+            )
+        try:
+            languages = ""
+            if form.get("english_speaker"):
+                languages += "English, "
+            if form.get("ukranian_speaker"):
+                languages += "Ukrainian, "
+            if form.get("russian_speaker"):
+                languages += "Russian, "
+            if len(languages) > 0:
+                languages = languages[:-2]
+            else:
+                languages = "None specified"
+            coordinates = MapBox_Connector.get_coordinates(form.get('address'))
+            announcement.name=form.get('name')
+            announcement.country=form.get('country')
+            announcement.address=form.get('address')
+            announcement.people_capacity=form.get('people_capacity')
+            announcement.lodging_time=form.get('lodging_time')
+            announcement.languages=languages
+            announcement.coordinates=coordinates
+            announcement.pets=form.get('pets')
+            announcement.legal_assistance=form.get('legal_assistance')
+            announcement.kid_friendly=form.get('kid_friendly')
+            announcement.transportation=form.get('transportation')
+            announcement.childcare_support=form.get('childcare_support')
+            announcement.first_aid=form.get('first_aid')
+            return wrap_response(request,
+                {
+                    "success": True,
+                    "announcementId": announcement.id,
+                    "yourMethod": request.method
+                }
+            )
+        except Exception as e:
+            return wrap_response(request,
+                {
+                    "success": False,
+                    "error": str(e)
+                }
+            )
+
+@login_required(login_url='/no/access')
+@req_methods(['DELETE'])
+def delete_announcement(request, a_id):
+    announcement = Announcements.objects.get(id=a_id)
+    if announcement.profile != request.user.profile:
+        return bad_request(request, "incorrect user", 403)
+    announcement.delete()
+    return wrap_response(
+        request,
+        {
+            "success": True,
+            "message": "Deleted announcment"
+        }
+    )
 
 
 

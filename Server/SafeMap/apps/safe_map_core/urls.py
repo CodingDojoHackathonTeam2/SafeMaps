@@ -20,7 +20,9 @@ urlpatterns = [
     path('api/csrf/', views.get_csrf, name='api-csrf'),
     path('api/session/', views.SessionView.as_view(), name='api-session'),
     path('api/whoami/', views.WhoAmIView.as_view(), name='api-whoami'),
-    # path('api/announcements/all', views.AnnouncementsViewSet.as_view({'get': 'list'})),
     path('api/announcements/all', views.get_announcements),
     path('api/announcements/create', views.create_announcement),
+    path('api/announcements/deactivate/<int:a_id>', views.deactivate_announcement),
+    path('api/announcements/edit/<int:a_id>', views.edit_announcement),
+    path('api/announcements/delete/<int:a_id>', views.delete_announcement),
 ]

@@ -28,6 +28,7 @@ class Announcements(models.Model):
     transportation = models.BooleanField(null=True, blank=True, default=False)
     childcare_support = models.BooleanField(null=True, blank=True, default=False)
     first_aid = models.BooleanField(null=True, blank=True, default=False)
+    active = models.BooleanField(default=True)
 
 
     # OneToMany with Profile
